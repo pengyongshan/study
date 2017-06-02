@@ -4,6 +4,10 @@
  */
 package com.tree.www.test;
 
+import com.sun.deploy.net.HttpUtils;
+
+import java.util.Date;
+
 /**
  * 
  * @author pengyongshan
@@ -12,8 +16,5 @@ package com.tree.www.test;
  */
 public class Test2 {
     public static void main(String[] args) {
-        short s1 = 1;
-        s1 += 1;
-        System.out.println(s1);
     }
 }

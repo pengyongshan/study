@@ -26,6 +26,5 @@ public class StringTest {
         System.out.println(RandomStringUtils.randomAlphabetic(10));
         System.out.println(RandomStringUtils.randomNumeric(10));
         System.out.println(WordUtils.capitalize(str));
-        
     }
 }
