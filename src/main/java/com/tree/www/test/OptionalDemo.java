@@ -29,6 +29,7 @@ public class OptionalDemo {
         System.out.println(empty.orElseGet(() -> "default value"));
 
         try {
+            String xx = "xxx";
             empty.orElseThrow(Exception::new);
         } catch (Throwable th) {
             System.out.println(th.getMessage());
@@ -36,7 +37,7 @@ public class OptionalDemo {
 
         //map方法通过传入的lambda表达式修改Optonal实例默认值。
         //lambda表达式返回值会包装为Optional实例。
-        Optional<String> upperName = name.map(value -> value.toUpperCase());
+        Optional<String> upperName = name.map(String::toUpperCase);
         System.out.println(upperName.orElse("no value found"));
 
         //flatMap与map（Funtion）非常相似，区别在于lambda表达式的返回值。

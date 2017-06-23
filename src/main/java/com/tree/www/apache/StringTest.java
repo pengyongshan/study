@@ -17,14 +17,16 @@ import org.apache.commons.lang3.text.WordUtils;
 public class StringTest {
 
     public static void main(String[] args) {
-        String str = "asabcacn ajjks  hshasa";
-        System.out.println(StringUtils.isEmpty(str));
-        System.out.println(StringUtils.isNumeric(str));
-        System.out.println(StringUtils.left(str, 2));
-        System.out.println(StringUtils.countMatches(str, "a"));
-        System.out.println(RandomStringUtils.randomAscii(10));
-        System.out.println(RandomStringUtils.randomAlphabetic(10));
-        System.out.println(RandomStringUtils.randomNumeric(10));
-        System.out.println(WordUtils.capitalize(str));
+        //String str = "asabcacn ajjks  hshasa";
+        //System.out.println(StringUtils.isEmpty(str));
+        //System.out.println(StringUtils.isNumeric(str));
+        //System.out.println(StringUtils.left(str, 2));
+        //System.out.println(StringUtils.countMatches(str, "a"));
+        //System.out.println(RandomStringUtils.randomAscii(10));
+        //System.out.println(RandomStringUtils.randomAlphabetic(10));
+        //System.out.println(RandomStringUtils.randomNumeric(10));
+        //System.out.println(WordUtils.capitalize(str));
+
+        System.out.println(28.2 * 9/13);
     }
 }

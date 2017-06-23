@@ -16,8 +16,8 @@ public class SystemTest {
 		System.out.println("--------" + System.getProperty("os.name"));
 
 		// IdentityHashcodeTest
-		String s1 = new String("java");
-		String s2 = new String("java");
+		String s1 = "java";
+		String s2 = "java";
 		System.out.println(s1.hashCode() + "-" + s2.hashCode());
 
 		// 根据对象地址的绝对hashcode值
