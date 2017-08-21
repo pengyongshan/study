@@ -11,12 +11,11 @@ import org.apache.curator.utils.CloseableUtils;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
- * Created by pysh on 2017/8/15.
+ * Created by pysh on 2017/8/21.
  */
-public class LeaderLatchExample {
+public class LeaderSelectorExample {
 
     private static final int CLIENT_QTY = 10;
 
@@ -24,43 +23,25 @@ public class LeaderLatchExample {
 
     public static void main(String[] args) throws Exception {
         List<CuratorFramework> clients = Lists.newArrayList();
-        List<LeaderLatch> examples = Lists.newArrayList();
+        List<ExampleClient> examples = Lists.newArrayList();
         TestingServer server = new TestingServer();
         try {
             for (int i = 0; i < CLIENT_QTY; ++i) {
                 CuratorFramework client = CuratorFrameworkFactory.newClient(server.getConnectString(),
                         new ExponentialBackoffRetry(1000, 3));
                 clients.add(client);
-                LeaderLatch example = new LeaderLatch(client, PATH, "Clent #" + i);
+                ExampleClient example = new ExampleClient(client, PATH, "Clent #" + i);
                 examples.add(example);
                 client.start();
                 example.start();
             }
-            TimeUnit.SECONDS.sleep(20);
-            LeaderLatch currentLeader = null;
-            for (int i = 0; i < CLIENT_QTY; ++i) {
-                LeaderLatch example = examples.get(i);
-                if (example.hasLeadership()) {
-                    currentLeader = example;
-                    break;
-                }
-            }
-            if (currentLeader != null) {
-                System.out.println("current leader is " + currentLeader.getId());
-                System.out.println("release the leader " + currentLeader.getId());
-                currentLeader.close();
-            }
-            examples.get(0).await(2, TimeUnit.SECONDS);
-            System.out.println("Client #0 maybe is elected as the leader or not although is want to be");
-            System.out.println("the new leader is " + examples.get(0).getLeader().getId());
-            System.out.println("Press enter/return to quit\n");
+
+            System.out.println("Press enter/return to quit.\n");
             new BufferedReader(new InputStreamReader(System.in)).readLine();
-        } catch (Exception e) {
-            e.printStackTrace();
         } finally {
-            System.out.println("shutting down...");
-            for (LeaderLatch leaderLatch : examples) {
-                CloseableUtils.closeQuietly(leaderLatch);
+            System.out.println("Shutting down...");
+            for (ExampleClient example : examples) {
+                CloseableUtils.closeQuietly(example);
             }
             for (CuratorFramework client : clients) {
                 CloseableUtils.closeQuietly(client);
