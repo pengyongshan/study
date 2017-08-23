@@ -11,6 +11,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class FakeLimitedResource {
     private final AtomicBoolean inUse = new AtomicBoolean(false);
 
+    /**
+     * access resource exclusively
+     *
+     * @throws InterruptedException
+     */
     public void use() throws InterruptedException {
         // 真实环境中我们会在这里访问/维护一个共享的资源
         // 这个例子在使用锁的情况下不会非法并发异常IllegalStateException

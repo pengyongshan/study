@@ -31,7 +31,8 @@ public class InterProcessMutexExample {
                             new ExponentialBackoffRetry(1000, 3));
                     try {
                         client.start();
-                        final ExampleClientThatLocks example = new ExampleClientThatLocks(client, PATH, resource, "Client " + index);
+                        //final ExampleClientThatLocks example = new ExampleClientThatLocks(client, PATH, resource, "Client " + index);
+                        final ExampleClientReadWriteLocks example = new ExampleClientReadWriteLocks(client, PATH, resource, "Client " + index);
                         for (int j = 0; j < REPETITIONS; j++) {
                             example.doWork(200, TimeUnit.MILLISECONDS);
                         }
