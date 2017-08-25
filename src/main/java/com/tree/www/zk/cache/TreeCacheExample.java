@@ -32,8 +32,7 @@ public class TreeCacheExample {
 
             cache = new TreeCache(client, PATH);
             cache.start();
-            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            System.err.println(in.readLine());
+            processCommands(client, cache);
         } finally {
             CloseableUtils.closeQuietly(cache);
             CloseableUtils.closeQuietly(client);
