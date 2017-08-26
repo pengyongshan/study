@@ -25,7 +25,7 @@ public class TreeCacheExample {
         CuratorFramework client = null;
         TreeCache cache = null;
 
-        try(TestingServer server = new TestingServer()) {
+        try (TestingServer server = new TestingServer()) {
             client = CuratorFrameworkFactory.newClient(server.getConnectString(),
                     new ExponentialBackoffRetry(1000, 3));
             client.start();
@@ -33,6 +33,8 @@ public class TreeCacheExample {
             cache = new TreeCache(client, PATH);
             cache.start();
             processCommands(client, cache);
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             CloseableUtils.closeQuietly(cache);
             CloseableUtils.closeQuietly(client);
@@ -50,7 +52,7 @@ public class TreeCacheExample {
                 String line = in.readLine();
                 String command = line.trim();
                 String[] parts = command.split("\\s");
-                if(parts.length == 0) {
+                if (parts.length == 0) {
                     continue;
                 }
                 String operation = parts[0];
@@ -74,7 +76,7 @@ public class TreeCacheExample {
     }
 
     private static void list(TreeCache cache) {
-        if(cache.getCurrentChildren(PATH).size() == 0) {
+        if (cache.getCurrentChildren(PATH).size() == 0) {
             System.err.println("* empty *");
         } else {
             for (Map.Entry<String, ChildData> entry : cache.getCurrentChildren(PATH).entrySet()) {
@@ -84,12 +86,12 @@ public class TreeCacheExample {
     }
 
     private static void remove(CuratorFramework client, String command, String[] args) {
-        if(args.length != 1) {
+        if (args.length != 1) {
             System.err.println("syntax error (expected remove <value>):" + command);
             return;
         }
         String name = args[0];
-        if(name.contains("/")) {
+        if (name.contains("/")) {
             System.err.println("Invalid node name:" + name);
             return;
         }
@@ -102,12 +104,12 @@ public class TreeCacheExample {
     }
 
     private static void setValue(CuratorFramework client, String command, String[] args) {
-        if(args.length != 2) {
+        if (args.length != 2) {
             System.err.println("syntax error (expected set <value>):" + command);
             return;
         }
         String name = args[0];
-        if(name.contains("/")) {
+        if (name.contains("/")) {
             System.err.println("Invalid node name:" + name);
             return;
         }
@@ -128,7 +130,7 @@ public class TreeCacheExample {
                             + ", value: " + new String(event.getData().getData()));
                     break;
                 case NODE_UPDATED:
-                    System.err.println("TreeNode changed:"+ ZKPaths.getNodeFromPath(event.getData().getPath())
+                    System.err.println("TreeNode changed:" + ZKPaths.getNodeFromPath(event.getData().getPath())
                             + ", value: " + new String(event.getData().getData()));
                     break;
                 case NODE_REMOVED:
