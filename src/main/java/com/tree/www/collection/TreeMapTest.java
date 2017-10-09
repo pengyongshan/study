@@ -11,7 +11,7 @@ public class TreeMapTest {
 	 * 
 	 * TreeMap key-compareTo返回0 元素相等无法加入
 	 * 
-	 * 与HashMap相比 多了访问第一个，前一个，后一个，最后一个的一些方法，还有截取子字符串的
+	 * 与HashMap相比 多了访问第一个，前一个，后一个，最后一个的一些方法，还有截取子map的
 	 */
 	public static void main(String[] args) {
 		TreeMap map = new TreeMap();

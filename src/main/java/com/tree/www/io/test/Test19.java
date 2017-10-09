@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -17,8 +18,8 @@ import java.util.zip.ZipOutputStream;
  */
 public class Test19 {
 	public static void main(String[] args) throws IOException {
-		File file = new File("d:" + File.separator + "pys" + File.separator + "temp");
-		File zipFile = new File("d:" + File.separator + "pys" + File.separator + file.getName() + ".zip");
+		File file = new File("/Users/pysh/Downloads/temp/");
+		File zipFile = new File("/Users/pysh/Downloads/xx.zip");
 		InputStream in = null;
 		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(zipFile));
 		out.setComment(file.getName());
@@ -26,8 +27,8 @@ public class Test19 {
 			File[] files = file.listFiles();
 			for (int i = 0; i < files.length; i++) {
 				in = new FileInputStream(files[i]);
-				out.putNextEntry(
-						new ZipEntry(file.getName() + File.separator + File.separator + files[i].getName()));
+				ZipEntry entry = new ZipEntry(files[i].getName());
+				out.putNextEntry(entry);
 				int temp = 0;
 				while ((temp = in.read()) != -1) {
 					out.write(temp);
