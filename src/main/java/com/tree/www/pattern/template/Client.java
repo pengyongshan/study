@@ -17,7 +17,7 @@ package com.tree.www.pattern.template;
 public class Client {
 
 	public static void main(String[] args) {
-		System.out.println("============= 准备茶 =============");
+		System.out.println("============= 准备柠檬茶 =============");
 		Beverage tea = new Tea();
 		tea.prepareBeverage();
 

@@ -15,11 +15,11 @@ public abstract class Beverage {
 	}
 
 	/** 基本方法 **/
-	private final void boilWater() { // 具体方法,子类并不实现或置换。
+	private void boilWater() { // 具体方法,子类并不实现或置换。
 		System.out.println("烧开水");
 	}
 
-	private final void pourIncup() { // 具体方法
+	private void pourIncup() { // 具体方法
 		System.out.println("倒入杯中");
 	}
 

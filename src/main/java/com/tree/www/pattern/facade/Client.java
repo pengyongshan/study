@@ -16,7 +16,8 @@ public class Client {
 	public static void main(String[] args) {
 		SecurityFacade facade = new SecurityFacade();
 		facade.start();
-		if (facade.check(true, false, false, true)) {
+
+		if (facade.check(false, true, false, true)) {
 			System.out.println("有人闯入...");
 		}
 
