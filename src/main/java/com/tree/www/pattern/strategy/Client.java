@@ -9,10 +9,9 @@ package com.tree.www.pattern.strategy;
  */
 public class Client {
 
-	private static double BOOK_PRICE = 40.70; // 书籍初始价格
-
 	public static void main(String[] args) {
 		Price price = new Price(new PrimaryMember()); // 初级会员来了
+		double BOOK_PRICE = 40.70;
 		System.out.println(price.quote(BOOK_PRICE));
 
 		price = new Price(new IntermediateMember()); // 中级会员

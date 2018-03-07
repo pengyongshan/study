@@ -5,6 +5,7 @@
 package com.tree.www.pattern.factory4Enum;
 
 /**
+ * 枚举实现的简单工厂模式
  * 
  * @author pengyongshan
  *
