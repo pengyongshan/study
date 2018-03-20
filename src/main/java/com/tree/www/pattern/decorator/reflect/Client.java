@@ -5,14 +5,13 @@
 package com.tree.www.pattern.decorator.reflect;
 
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
 
 /**
  * 反射实现装饰模式
- * @author pengyongshan
  *
+ * @author pengyongshan
  * @version $Id: Client.java, v 0.1 2017年3月15日 上午11:51:39 pengyongshan Exp $
  */
 public class Client {
@@ -24,6 +23,7 @@ public class Client {
         jerry.doStuff();
     }
 }
+
 interface Animal {
     void doStuff();
 }
@@ -32,10 +32,11 @@ class Rat implements Animal {
 
     @Override
     public void doStuff() {
-       System.out.println("老鼠打洞");
+        System.out.println("老鼠打洞");
     }
-    
+
 }
+
 //定义某种能力
 interface Feature {
     //加载特性
@@ -57,27 +58,25 @@ class DigFeature implements Feature {
 }
 
 class DecorateAnimal implements Animal {
-    
+
     private Animal animal;
-    
+
     private Class<? extends Feature> cls;
-    
+
     public DecorateAnimal(Animal animal, Class<? extends Feature> cls) {
         this.animal = animal;
         this.cls = cls;
     }
+
     @Override
     public void doStuff() {
-        InvocationHandler handler = new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-               Object obj = null;
-               if(Modifier.isPublic(method.getModifiers())) {
-                   obj = method.invoke(cls.newInstance(), args);
-               }
-               animal.doStuff();
-               return obj;
+        InvocationHandler handler = (proxy, method, args) -> {
+            Object obj = null;
+            if (Modifier.isPublic(method.getModifiers())) {
+                obj = method.invoke(cls.newInstance(), args);
             }
+            animal.doStuff();
+            return obj;
         };
         ClassLoader cl = getClass().getClassLoader();
         Feature proxy = (Feature) Proxy.newProxyInstance(cl, cls.getInterfaces(), handler);

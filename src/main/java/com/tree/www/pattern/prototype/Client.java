@@ -15,12 +15,12 @@ public class Client {
 
 	public static void main(String[] args) throws CloneNotSupportedException {
 
-		Mail Smail = new Mail(new AdvTemplate());
+		Mail smail = new Mail(new AdvTemplate());
 
-		Smail.setTail("xx银行版权所有");
+		smail.setTail("xx银行版权所有");
 
 		for (int i = 0; i < COUNT; i++) {
-			Mail mail = Smail.clone();
+			Mail mail = smail.clone();
 			mail.setReceiveName(getRandomString(5) + "先生/女士");
 			mail.setReceiver(getRandomString(5) + "@" + getRandomString(8) + ".com");
 			sendMail(mail);
@@ -36,7 +36,7 @@ public class Client {
 	private static String getRandomString(int length) {
 		String source = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 		Random rand = new Random();
 
