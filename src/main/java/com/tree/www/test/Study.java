@@ -4,6 +4,11 @@
  */
 package com.tree.www.test;
 
+import com.alibaba.fastjson.JSON;
+
+import java.util.Arrays;
+import java.util.Date;
+
 /**
  * 
  * @author pengyongshan
@@ -12,17 +17,8 @@ package com.tree.www.test;
  */
 public class Study {
 
-    public static void main(String[] args) {
-        aa();
-    }
-
-    public static void aa() {
-        try {
-            return;
-        } catch (Exception e) {
-            // TODO: handle exception
-        } finally {
-            System.out.println("aa");
-        }
+    public static void main(String[] args) throws ClassNotFoundException {
+        Date date = new Date();
+        System.out.println(JSON.parseObject("1525261320053", Date.class));
     }
 }

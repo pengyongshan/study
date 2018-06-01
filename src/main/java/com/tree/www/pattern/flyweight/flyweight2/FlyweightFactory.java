@@ -15,7 +15,7 @@ public class FlyweightFactory {
 		return factory;
 	}
 
-	private Map<String, Flyweight> flies = new HashMap<String, Flyweight>();
+	private Map<String, Flyweight> flies = new HashMap<>();
 
 	public Flyweight getFly(List<String> compositeStates) {
 		ConcreteCompositeFlyweight compositeFly = new ConcreteCompositeFlyweight();
@@ -28,11 +28,6 @@ public class FlyweightFactory {
 	}
 
 	public Flyweight getFly(String state) {
-		Flyweight flyweight = flies.get(state);
-		if(flyweight == null){
-			flyweight = new ConcreteFlyweight(state);
-			flies.put(state, flyweight);
-		}
-		return flyweight;
+		return flies.computeIfAbsent(state, ConcreteFlyweight::new);
 	}
 }

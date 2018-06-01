@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class ConcreteCompositeFlyweight implements Flyweight {
 
-	private Map<String, Flyweight> flies = new HashMap<String, Flyweight>();
+	private Map<String, Flyweight> flies = new HashMap<>();
 
 	// 增加一个新的单纯享元到聚集中
 	public void add(String key, Flyweight fly) {

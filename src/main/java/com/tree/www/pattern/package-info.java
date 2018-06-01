@@ -16,8 +16,8 @@ package com.tree.www.pattern;
  * √ 2.桥梁模式-bridge
  * √ 3.装饰模式-decorator
  * √ 4.门面模式-facade                    
- *   5.合成模式-composite
- *   6.享元模式-flyweight
+ * √ 5.合成模式-composite
+ * √ 6.享元模式-flyweight
  * √ 7.代理模式-proxy                      
  *
  * 行为型

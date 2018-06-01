@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class SignInfoFactory {
 
-	private static Map<String, SignInfo> pool = new HashMap<String, SignInfo>();
+	private static Map<String, SignInfo> pool = new HashMap<>();
 
 	public static SignInfo getSignInfo(String key) {
-		SignInfo signInfo = null;
+		SignInfo signInfo;
 
 		if (!pool.containsKey(key)) {
 			System.out.println(key + "----建立对象，放入池中----");
