@@ -25,12 +25,12 @@ package com.tree.www.pattern;
  * √ 2.命令模式-command
  *   3.迭代器模式-iterator
  *   4.观察者模式-observer
- *   5.调停/中介者模式-mediator
+ * √ 5.调停/中介者模式-mediator
  * √ 6.状态模式-state                     
  * √ 7.策略模式-strategy                  
- *   8.责任链模式-chains
+ * √ 8.责任链模式-chains
  *   9.访问者-vistor
  *   10.备忘录模式-memento
- *   11.解释器模式-intepreter
+ * √ 11.解释器模式-intepreter
  *
  */
