@@ -27,5 +27,9 @@ public class Client {
 		originator.restoreMemento(caretaker.retrieveMemento("002")); // 取出备份
 
 		System.out.println("取出002备份：" + originator);
+
+		originator.restoreMemento(caretaker.retrieveMemento("001")); // 取出备份
+
+		System.out.println("取出001备份：" + originator);
 	}
 }

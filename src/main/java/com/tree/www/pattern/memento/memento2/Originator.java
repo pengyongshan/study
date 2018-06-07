@@ -51,7 +51,7 @@ public class Originator {
 
 	private class Memento implements IMemento {
 
-		private Map<String, Object> stateMap = new HashMap<String, Object>();
+		private Map<String, Object> stateMap = new HashMap<>();
 
 		private Memento(Map<String, Object> map) {
 			this.stateMap = map;

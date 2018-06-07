@@ -21,10 +21,10 @@ public class ShowVisitor implements IShowVisitor {
 	}
 
 	private String getBaseInfo(Employee employee) {
-		StringBuffer sb = new StringBuffer();
-		sb.append("姓名：" + employee.getName() + "\t");
-		sb.append("性别：" + (employee.getSex() == Employee.MALE ? "男" : "女"));
-		sb.append("薪水：" + employee.getSalary());
+		StringBuilder sb = new StringBuilder();
+		sb.append("姓名：").append(employee.getName()).append("\t");
+		sb.append("性别：").append(employee.getSex() == Employee.MALE ? "男" : "女");
+		sb.append("薪水：").append(employee.getSalary());
 		return sb.toString();
 	}
 
