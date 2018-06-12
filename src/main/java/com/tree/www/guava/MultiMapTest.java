@@ -24,7 +24,7 @@ public class MultiMapTest {
         map.put("qqq", "15088694492");
         
         System.out.println(map.size());
-        System.out.println(map.get("qqq"));
+        System.out.println(map.get("pys"));
         
     }
 }

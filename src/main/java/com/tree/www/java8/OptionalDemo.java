@@ -1,4 +1,4 @@
-package com.tree.www.test;
+package com.tree.www.java8;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -25,12 +25,12 @@ public class OptionalDemo {
         System.out.println(name.orElse("There is some value"));
         System.out.println(empty.orElse("There is no value present"));
 
-        System.out.println(name.orElseGet(() -> "default value"));
-        System.out.println(empty.orElseGet(() -> "default value"));
+        System.out.println(name.orElse("default value"));
+        System.out.println(empty.orElse("default value"));
 
         try {
-            String xx = "xxx";
-            empty.orElseThrow(Exception::new);
+            String xx = "exception msg";
+            empty.orElseThrow(() -> new Exception(xx));
         } catch (Throwable th) {
             System.out.println(th.getMessage());
         }

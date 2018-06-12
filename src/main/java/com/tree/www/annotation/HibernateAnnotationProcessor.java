@@ -16,7 +16,7 @@ import javax.lang.model.element.Name;
 import javax.lang.model.element.TypeElement;
 
 // 根据注解生成xml文件
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 @SupportedAnnotationTypes({ "Persistent", "Id", "Property" })
 public class HibernateAnnotationProcessor extends AbstractProcessor {
 	@Override

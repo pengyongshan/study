@@ -14,7 +14,7 @@ import java.io.Writer;
 
 public class CopyTest {
 
-	public static void main(String[] args) throws FileNotFoundException, IOException {
+	public static void main(String[] args) throws IOException {
 		
 		// 字节流复制
 		OutputStream fos = new FileOutputStream(

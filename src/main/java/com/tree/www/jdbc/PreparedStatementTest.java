@@ -16,7 +16,7 @@ public class PreparedStatementTest {
 		long start = System.currentTimeMillis();
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
-		String sql = "";
+		String sql;
 		for (int i = 0; i < 100; i++) {
 			sql = "insert into student_table values(null,'姓名" + i + "', 1)";
 			stmt.executeUpdate(sql);
@@ -30,7 +30,6 @@ public class PreparedStatementTest {
 		long start = System.currentTimeMillis();
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement("insert into student_table values(null,?, 1)");
-		String sql = "";
 		for (int i = 0; i < 100; i++) {
 			pstmt.setString(1, "姓名" + i);
 			pstmt.executeUpdate();

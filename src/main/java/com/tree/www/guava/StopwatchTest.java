@@ -19,8 +19,8 @@ public class StopwatchTest {
 
     public static void main(String[] args) {
         Stopwatch s = Stopwatch.createStarted();
-        int sum = 0;
-        for(int i=0; i<100000; i ++) {
+        long sum = 0;
+        for(int i=0; i<10000000; i ++) {
             sum +=i;
         }
         System.out.println(sum);

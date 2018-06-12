@@ -23,11 +23,6 @@ public class MapsTest {
         users.put("zs", 18);
         users.put("lis", 17);
         users.put("ww", 20);
-        System.out.println("成年人：" + Maps.filterValues(users, new Predicate<Integer>() {
-            @Override
-            public boolean apply(Integer input) {
-                return input >= 18;
-            }
-        }));
+        System.out.println("成年人：" + Maps.filterValues(users, input -> input != null && input >= 18));
     }
 }

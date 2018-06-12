@@ -18,7 +18,7 @@ public class CachePoolTest {
         CachePool.valueOf("11");
         CachePool.valueOf("12");
         
-        System.out.println(c1 == c2);
+        System.out.println(c2 == c4);
     }
 }
 

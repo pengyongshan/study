@@ -21,7 +21,7 @@ public class BinarySearch {
         int[] a = { 1, 2, 3, 5 };
         System.out.println("数组a为:" + Arrays.toString(a));
         Scanner scanner = new Scanner(System.in);
-        int n = 0;
+        int n;
         System.out.println("请输入要在数组中查找的数(-1退出):");
         while ((n = scanner.nextInt()) != -1) {
             int index = Arrays.binarySearch(a, n);
@@ -34,6 +34,7 @@ public class BinarySearch {
             System.out.println("请继续输入要在数组中查找的数(-1退出):");
         }
         System.out.println("退出成功");
+        //new Thread(() -> Thread.sleep(10000)).start();
     }
 
     @SuppressWarnings("unused")
