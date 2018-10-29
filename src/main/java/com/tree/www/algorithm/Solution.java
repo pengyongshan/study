@@ -1,13 +1,8 @@
 package com.tree.www.algorithm;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class Solution {
-
-
 
     public static void main(String[] args) {
         int[] pushA = {1, 2, 3, 4, 5};
@@ -26,7 +21,6 @@ public class Solution {
         System.out.println(Arrays.toString(twoSum(pushA, 9)));
         System.out.println(maxArea(area));
     }
-
     /**
      * 寻找2个数组的中位数
      *

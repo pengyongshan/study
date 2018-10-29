@@ -50,7 +50,7 @@ public class Mail implements Cloneable {
 	protected Mail clone() throws CloneNotSupportedException {
 
 		Mail mail = (Mail) super.clone();
-		//mail.advTemplate = this.advTemplate.clone();// 不加就是浅拷贝
+		mail.advTemplate = this.advTemplate.clone();// 不加就是浅拷贝
 		return mail;
 	}
 }
