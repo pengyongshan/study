@@ -18,12 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class CyclicBarrierTest {
 
     public static void main(String[] args) {
-        CyclicBarrier cb = new CyclicBarrier(2, new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("隧道已经打通。");
-            }
-        });
+        CyclicBarrier cb = new CyclicBarrier(2, () -> System.out.println("隧道已经打通。"));
 
         new Thread(new Worker(cb), "工人1").start();
         new Thread(new Worker(cb), "工人2").start();

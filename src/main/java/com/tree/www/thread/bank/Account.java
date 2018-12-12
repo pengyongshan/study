@@ -8,10 +8,6 @@ public class Account {
 
 	private boolean flag;
 
-	public Account() {
-
-	}
-
 	public Account(String accountNo, double balance) {
 		this.accountNo = accountNo;
 		this.balance = balance;
