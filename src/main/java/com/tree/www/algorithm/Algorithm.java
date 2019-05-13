@@ -32,7 +32,7 @@ public class Algorithm {
         //System.out.println(countAndSay(6));
         //System.out.println(reverse(-2147483648));
         //System.out.println(Arrays.toString(fairCandySwap(new int[]{1, 3, 4, 5, 2}, new int[]{1, 2, 2, 4})));
-        System.out.println(superEggDrop(2, 4));
+        System.out.println(superEggDrop(2, 100));
     }
 
     /**

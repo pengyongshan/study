@@ -112,7 +112,7 @@ public class ThreadsInteraction {
     }
 
     /**
-     * 有三个跑步运动员，各自准备好后等待其他人，全部准备好后才开始跑
+     * 有三个跑步运动员，各自准备好后等待其他人，全部准备好后才一起开始跑
      * <p>
      * CyclicBarrier
      */
