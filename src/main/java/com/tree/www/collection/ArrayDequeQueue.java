@@ -6,7 +6,7 @@ import java.util.Deque;
 // ArrayDeque当队列用,先进先出
 public class ArrayDequeQueue {
 	public static void main(String[] args) {
-		Deque queue = new ArrayDeque();
+		Deque<String> queue = new ArrayDeque<>();
 		queue.offer("java"); // 等价于 add addLast
 		queue.offer("eclipse");
 		queue.offer("hello");

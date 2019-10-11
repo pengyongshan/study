@@ -1,4 +1,4 @@
-package com.tree.www.algorithm;
+package com.tree.www.leetCode;
 
 import java.util.*;
 

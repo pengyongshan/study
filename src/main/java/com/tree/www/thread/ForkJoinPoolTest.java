@@ -23,6 +23,7 @@ public class ForkJoinPoolTest {
 
 class PrintTask extends RecursiveAction {
 
+	private static final long serialVersionUID = 8710089300517620669L;
 	private static final int THRESHOLD = 50;
 
 	private int start;
