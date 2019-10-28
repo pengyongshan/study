@@ -17,8 +17,7 @@ public class UrgencyMessage extends AbstractMessage {
 	 * @param messageId
 	 * @return
 	 */
-	public Object wacth(String messageId) {
+	public void wacth(String messageId) {
 		System.out.println("监控：" + messageId);
-		return null;
 	}
 }

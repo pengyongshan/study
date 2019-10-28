@@ -9,12 +9,12 @@ import java.util.List;
 public class Client {
     public static void main(String[] args) {
         AccountBook accountBook = new AccountBook();
-        accountBook.addBill(new ConsumBill(20000,"工资"));
-        accountBook.addBill(new ConsumBill(1000,"材料费"));
-        accountBook.addBill(new ConsumBill(3000,"餐补"));
-        accountBook.addBill(new IncomeBill(3000,"卖广告位"));
-        accountBook.addBill(new IncomeBill(50000,"卖商品"));
-        accountBook.addBill(new IncomeBill(5000,"项目补贴"));
+        accountBook.addBill(new ConsumBill(20000, "工资"));
+        accountBook.addBill(new ConsumBill(1000, "材料费"));
+        accountBook.addBill(new ConsumBill(3000, "餐补"));
+        accountBook.addBill(new IncomeBill(3000, "卖广告位"));
+        accountBook.addBill(new IncomeBill(50000, "卖商品"));
+        accountBook.addBill(new IncomeBill(5000, "项目补贴"));
         AccountBookViewer boss = new Boss();
         AccountBookViewer cpa = new CPA();
         AccountBookViewer cfo = new CFO();
@@ -27,7 +27,6 @@ public class Client {
         double totalConsume = ((Boss) boss).getTotalConsume();
         double totalIncome = ((Boss) boss).getTotalIncome();
         System.out.println("盈利：" + (totalIncome - totalConsume));
-
 
 
     }
@@ -55,6 +54,7 @@ abstract class AbstractBill implements Bill {
         return item;
     }
 }
+
 // 消费
 class ConsumBill extends AbstractBill {
 
@@ -67,6 +67,7 @@ class ConsumBill extends AbstractBill {
         viewer.view(this);
     }
 }
+
 // 收入
 class IncomeBill extends AbstractBill {
 
@@ -79,6 +80,7 @@ class IncomeBill extends AbstractBill {
         viewer.view(this);
     }
 }
+
 //账单查看者接口
 interface AccountBookViewer {
     void view(ConsumBill bill);
@@ -102,12 +104,12 @@ class Boss implements AccountBookViewer {
     }
 
     public double getTotalIncome() {
-        System.out.println("老板查看一共收入多少，数目是："+ totalIncome);
+        System.out.println("老板查看一共收入多少，数目是：" + totalIncome);
         return totalIncome;
     }
 
     public double getTotalConsume() {
-        System.out.println("老板查看一共支出多少，数目是："+ totalConsume);
+        System.out.println("老板查看一共支出多少，数目是：" + totalConsume);
         return totalConsume;
     }
 }
@@ -116,7 +118,7 @@ class CPA implements AccountBookViewer {
 
     @Override
     public void view(ConsumBill bill) {
-        if(bill.getItem().contains("工资")) {
+        if (bill.getItem().contains("工资")) {
             System.out.println("注会查看【" + bill.getItem() + "】支出是否上交个人所得税");
         }
     }

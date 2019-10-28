@@ -21,11 +21,9 @@ public class ShowVisitor implements IShowVisitor {
 	}
 
 	private String getBaseInfo(Employee employee) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("姓名：").append(employee.getName()).append("\t");
-		sb.append("性别：").append(employee.getSex() == Employee.MALE ? "男" : "女");
-		sb.append("薪水：").append(employee.getSalary());
-		return sb.toString();
+		return "姓名：" + employee.getName() + "\t" +
+				"性别：" + (employee.getSex() == Employee.MALE ? "男" : "女") +
+				"薪水：" + employee.getSalary();
 	}
 
 	private String getManagerInfo(Manager manager) {

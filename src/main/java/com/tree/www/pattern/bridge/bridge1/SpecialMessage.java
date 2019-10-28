@@ -17,8 +17,7 @@ public class SpecialMessage extends AbstractMessage {
 	 * @param messageId
 	 * @return
 	 */
-	public Object hurry(String messageId) {
+	public void hurry(String messageId) {
 		System.out.println("催促：" + messageId);
-		return null;
 	}
 }

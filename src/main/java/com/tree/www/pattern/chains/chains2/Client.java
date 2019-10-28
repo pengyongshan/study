@@ -8,7 +8,7 @@ package com.tree.www.pattern.chains.chains2;
  */
 public class Client {
     public static void main(String[] args) {
-        Request request = new Request.Builder().setName("张三").setDays(8).setReason("事假").build();
+        Request request = new Request.Builder().setName("张三").setDays(5).setReason("事假").build();
         ChainOfResponsibilityClient client = new ChainOfResponsibilityClient();
         client.addRatify(new CustomInterceptor());
         System.out.println(client.execute(request));

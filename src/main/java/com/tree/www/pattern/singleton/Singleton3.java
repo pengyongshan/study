@@ -6,7 +6,7 @@ public class Singleton3 {
 	private volatile static Singleton3 singleton3;
 
 	private Singleton3() {
-	};
+	}
 
 	public static Singleton3 getInstance() {
 		if (singleton3 == null) {

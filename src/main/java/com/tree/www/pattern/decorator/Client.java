@@ -9,7 +9,7 @@ public class Client {
     public static void main(String[] args) throws Exception {
         DataOutputStream dout = new DataOutputStream(new EncryptOutputStream(
                 new BufferedOutputStream(new FileOutputStream("test.txt"))));
-        dout.write("abcdefg".getBytes());
+        dout.write("abcdefghijk".getBytes());
         dout.close();
     }
 }

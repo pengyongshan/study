@@ -1,7 +1,7 @@
 package com.tree.www.pattern.chains.chains1;
 
 public abstract class Handler {
-	private int level = TypeEnum.DEFAULT.getValue();
+	private int level;
 
 	private Handler nextHandler;
 

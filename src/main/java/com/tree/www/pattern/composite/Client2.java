@@ -1,4 +1,4 @@
-package com.tree.www.pattern.composite.composite1;
+package com.tree.www.pattern.composite;
 
 import com.google.common.collect.Lists;
 
