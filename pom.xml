@@ -102,7 +102,18 @@
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
-			<version>4.0.25.Final</version>
+			<version>4.1.37.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-example</artifactId>
+			<version>4.1.37.Final</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>netty-tcnative</artifactId>
+					<groupId>io.netty</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.curator</groupId>
@@ -118,6 +129,12 @@
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.14</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>netty</artifactId>
+					<groupId>io.netty</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.curator</groupId>
@@ -187,8 +204,7 @@
 			<resource>  
 			    <directory>src/main/resources/</directory>  
 			    <includes>
-					<include>**/*.properties</include>
-					<include>**/*.xml</include>
+					<include>**/*.*</include>
 				</includes>
 			    <excludes>  
                     <exclude>**/properties/</exclude>
