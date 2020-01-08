@@ -44,6 +44,7 @@ public class CountDownLatchTest {
         int count = 0;
         for (Future<Integer> future : futures) {
             count += future.get();
+
             System.out.println(future.get());
         }
         System.out.println("平均分:" + count / num);

@@ -3,19 +3,19 @@ package com.tree.www.pattern.singleton;
 // 双重校验锁
 public class Singleton3 {
 
-	private volatile static Singleton3 singleton3;
+	private volatile static Singleton3 INSTANCE;
 
 	private Singleton3() {
 	}
 
 	public static Singleton3 getInstance() {
-		if (singleton3 == null) {
+		if (INSTANCE == null) {
 			synchronized (Singleton3.class) {
-				if (singleton3 == null) {
-					singleton3 = new Singleton3();
+				if (INSTANCE == null) {
+					INSTANCE = new Singleton3();
 				}
 			}
 		}
-		return singleton3;
+		return INSTANCE;
 	}
 }

@@ -45,8 +45,8 @@ public class CircleFriend {
 
         for (int i = 0; i < NUM; i++) {
             if (visit[i] == 0) {
-                bfs(visit, M, i);
-                //dfs(visit, M, i);
+                //bfs(visit, M, i);
+                dfs(visit, M, i);
                 circleNum++;
             }
         }

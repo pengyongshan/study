@@ -4,14 +4,12 @@ import com.tree.www.minimvc.annotation.*;
 import com.tree.www.minimvc.controller.UserController;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -39,7 +37,7 @@ public class DispatcherServlet extends HttpServlet {
     private Map<Method, String> methodPackageMap = new HashMap<>();
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
+    public void init(ServletConfig config) {
         String basePackage = config.getInitParameter("base-package");
 
         try {
@@ -54,12 +52,12 @@ public class DispatcherServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         doPost(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String uri = request.getRequestURI();
         String contextPath = request.getContextPath();
         String path = uri.replaceAll(contextPath, "");
