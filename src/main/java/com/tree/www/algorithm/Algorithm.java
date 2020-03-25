@@ -32,7 +32,13 @@ public class Algorithm {
         //System.out.println(countAndSay(6));
         //System.out.println(reverse(-2147483648));
         //System.out.println(Arrays.toString(fairCandySwap(new int[]{1, 3, 4, 5, 2}, new int[]{1, 2, 2, 4})));
-        System.out.println(superEggDrop(2, 100));
+        //System.out.println(superEggDrop(2, 100));
+        //ListNode node1 = new ListNode(9);
+        //node1.next = new ListNode(1);
+        //ListNode node2 = new ListNode(9);
+        //new Algorithm().addTwoNumbers2(node1, node2);
+        //System.out.println(new Algorithm().plusOne(new int[]{9}));
+        System.out.println(new Algorithm().restoreIpAddresses("010010"));
     }
 
     /**
@@ -214,6 +220,79 @@ public class Algorithm {
         }
         if (ca != 0) temp.next = new ListNode(ca);
         return res;
+    }
+
+    /**
+     * 给定两个非空链表来代表两个非负整数。数字最高位位于链表开始位置。
+     * 它们的每个节点只存储单个数字。将这两数相加会返回一个新的链表。
+     * <p>
+     * 你可以假设除了数字 0 之外，这两个数字都不会以零开头。
+     * <p>
+     * 进阶:
+     * 如果输入链表不能修改该如何处理？换句话说，你不能对列表中的节点进行翻转。
+     *
+     * @param l1 (2 -> 4 -> 3 -> 6)
+     * @param l2 (5 -> 6 -> 4)
+     * @return 3000
+     */
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        int len1 = length(l1);
+        int len2 = length(l2);
+        if (len1 == 0) return l2;
+        if (len2 == 0) return l1;
+
+        if (len1 > len2) {
+            l2 = fillZero(l2, len1 - len2);
+        } else {
+            l1 = fillZero(l1, len2 - len1);
+        }
+        int len = Math.max(len1, len2);
+
+        ListNode temp1 = null;
+        int length = len;
+        while (length-- > 0) {
+            ListNode node = new ListNode(l1.val + l2.val);
+            l1 = l1.next;
+            l2 = l2.next;
+            node.next = temp1;
+            temp1 = node;
+        }
+
+        ListNode temp2 = null;
+        int carry = 0;
+        while (len-- > 0) {
+            ListNode node = new ListNode((temp1.val + carry) % 10);
+            node.next = temp2;
+            temp2 = node;
+            carry = (temp1.val + carry) >= 10 ? 1 : 0;
+            temp1 = temp1.next;
+        }
+
+        ListNode result = temp2;
+        if (carry == 1) {
+            ListNode node = new ListNode(1);
+            node.next = temp2;
+            result = node;
+        }
+        return result;
+    }
+
+    private ListNode fillZero(ListNode node, int i) {
+        while (i-- > 0) {
+            ListNode temp = new ListNode(0);
+            temp.next = node;
+            node = temp;
+        }
+        return node;
+    }
+
+    private int length(ListNode node) {
+        int length = 0;
+        while (node != null) {
+            length++;
+            node = node.next;
+        }
+        return length;
     }
 
     /**
@@ -612,6 +691,64 @@ public class Algorithm {
         return f2 == nums2.length || (f1 < nums1.length && nums1[f1] > nums2[f2]);
     }
 
+    public int[] plusOne(int[] digits) {
+        if (digits == null || digits.length == 0) {
+            return null;
+        }
+        int len = digits.length;
+        for (int i = len - 1; i >= 0; i--) {
+            digits[i] += 1;
+            if (digits[i] < 10) {
+                return digits;
+            } else {
+                digits[i] = 0;
+            }
+        }
+        int[] result = new int[len + 1];
+        System.arraycopy(digits, 0, result, 1, len + 1);
+        result[0] = 1;
+        return result;
+    }
+
+    /**
+     * 给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。
+     *
+     * @param s
+     * @return
+     */
+    public List<String> restoreIpAddresses(String s) {
+        List<String> list = new ArrayList<>();
+        if (s == null || s.length() < 4 || s.length() > 12) {
+            return list;
+        }
+        int len = s.length();
+        for (int i = 1; i <= 3 && i < len - 2; i++) {
+            for (int j = i + 1; j - i <= 3 && j < len - 1; j++) {
+                for (int k = j + 1; k - j <= 3 && k < len; k++) {
+                    String result = getResult(s, i, j, k);
+                    if (!result.equals("")) {
+                        list.add(result);
+                    }
+                }
+            }
+        }
+        return list;
+    }
+
+    private String getResult(String s, int point1, int point2, int point3) {
+        int a = Integer.valueOf(s.substring(0, point1));
+        int b = Integer.valueOf(s.substring(point1, point2));
+        int c = Integer.valueOf(s.substring(point2, point3));
+        int d = Integer.valueOf(s.substring(point3));
+
+        if (a > 255 || b > 255 || c > 255 || d > 255) {
+            return "";
+        } else {
+            String result = a + "." + b + "." + c + "." + d;
+            // 去除0开头的，比如01.1.2.3之类的不符合
+            return result.length() - s.length() == 3 ? result : "";
+        }
+    }
 }
 
 class ListNode {
