@@ -5,7 +5,7 @@ package com.tree.www.leetCode;
  * <p>
  * Created by pysh on 2020-03-30.
  */
-public class Merge {
+public class MergeSortedArr {
 
     /**
      * 给定两个排序后的数组 A 和 B，其中 A 的末端有足够的缓冲空间容纳 B。
