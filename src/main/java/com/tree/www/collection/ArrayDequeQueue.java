@@ -5,6 +5,9 @@ import java.util.Deque;
 
 // ArrayDeque当队列用,先进先出
 public class ArrayDequeQueue {
+	public ArrayDequeQueue() {
+	}
+
 	public static void main(String[] args) {
 		Deque<String> queue = new ArrayDeque<>();
 		queue.offer("java"); // 等价于 add addLast
