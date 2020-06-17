@@ -5,7 +5,7 @@ package com.tree.www.leetcode;
  * <p>
  * Created by pysh on 2020-03-10.
  */
-public class AddBinary {
+public class Leetcode67 {
     public static void main(String[] args) {
         System.out.println(addBinary("1011010", "1011"));
     }
