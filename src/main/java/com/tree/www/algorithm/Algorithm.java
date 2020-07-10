@@ -397,20 +397,18 @@ public class Algorithm {
         int res = 0, start = 0;
         char[] chars = s.toCharArray();
         Stack<Integer> m = new Stack<>();
+        m.push(-1);
         for (int i = 0; i < s.length(); ++i) {
             if (chars[i] == '(') {
                 m.push(i);
             } else {
-                if (m.empty()) {
-                    start = i + 1;
-                } else {
-                    m.pop();
-                    res = m.empty() ? Math.max(res, i - start + 1) : Math.max(res, i - m.lastElement());
-                }
+                m.pop();
+                res = m.empty() ? Math.max(res, i - start + 1) : Math.max(res, i - m.lastElement());
             }
         }
-        return res;
     }
+        return res;
+}
 
     /**
      * 对于给定的整数 n, 如果n的k（k>=2）进制数的所有数位全为1，则称 k（k>=2）是 n 的一个好进制。
