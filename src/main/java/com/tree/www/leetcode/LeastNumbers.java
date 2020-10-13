@@ -1,5 +1,7 @@
 package com.tree.www.leetcode;
 
+import java.util.Arrays;
+
 /**
  * 最小的k个数
  * <p>
@@ -32,5 +34,9 @@ public class LeastNumbers {
             }
         }
         return rest;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(new LeastNumbers().getLeastNumbers(new int[]{1, 1, 2, 3}, 2)));
     }
 }

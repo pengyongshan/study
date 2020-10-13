@@ -24,7 +24,7 @@ public class Leetcode137 {
     }
 
     public static void main(String[] args) {
-        int[] num = {2, 2, 1, 3};
+        int[] num = {2, 2, 1, 3, 2, 1, 1};
         System.out.println(new Leetcode137().singleNumber(num));
     }
 }
