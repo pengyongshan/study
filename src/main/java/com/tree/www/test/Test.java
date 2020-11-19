@@ -6,16 +6,16 @@ package com.tree.www.test;
 public class Test {
 
     public static void main(String[] args) {
-        for (int i = 7; i >= 0; i--) {
-            if (((1L << i) & -3) != 0) {
-                System.out.print("1");
-            } else {
-                System.out.print("0");
-            }
+        String string = "";
+        System.out.println(string);
+    }
+
+    private static String longStr(int len) {
+        String a = "";
+        for (int i = 0; i < len; i++) {
+            a += "a";
         }
-        System.out.println();
-        System.out.println(~ 2);
-        throw new NullPointerException();
+        return a;
     }
 
 }
