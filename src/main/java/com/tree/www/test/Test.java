@@ -6,8 +6,16 @@ package com.tree.www.test;
 public class Test {
 
     public static void main(String[] args) {
-        String string = "";
-        System.out.println(string);
+        double x1 = 1 - 18900.0 / 19550;
+        double x2 = 1 - 18600.0 / 19100;
+        double x3 = 1 - 17200.0 / 18900;
+        double x4 = 1 - 17170.0 / 18050;
+        double x5 = 1 - 17700.0 / 18070;
+        System.out.println(x1);
+        System.out.println(x2);
+        System.out.println(x3);
+        System.out.println(x4);
+        System.out.println(x5);
     }
 
     private static String longStr(int len) {
