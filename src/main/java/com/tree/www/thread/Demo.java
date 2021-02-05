@@ -45,9 +45,7 @@ public class Demo implements Runnable {
 		Demo demo3 = new Demo("C", b, c);
 
 		new Thread(demo1).start();
-		Thread.sleep(10);
 		new Thread(demo2).start();
-		Thread.sleep(10);
 		new Thread(demo3).start();
 
 	}
