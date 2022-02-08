@@ -5,22 +5,28 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
-
-import com.tree.www.io.Common;
+import java.nio.charset.StandardCharsets;
 
 public class ReadFile {
-	public static void main(String[] args) throws Exception {
-		FileInputStream fis = new FileInputStream(Common.FILE_NAME);
-		FileChannel fc = fis.getChannel();
-		ByteBuffer buff = ByteBuffer.allocate(256);
-		while (fc.read(buff) != -1) {
-			buff.flip();
-			Charset charset = Charset.forName("UTF-8");
-			// CharsetDecoder decoder = charset.newDecoder();
-			// CharBuffer charBuffer = decoder.decode(buff);
-			CharBuffer charBuffer = charset.decode(buff);
-			System.out.println(charBuffer);
-			buff.clear();
-		}
-	}
+    public static void main(String[] args) throws Exception {
+        for (int i = 471; i <= 1131; i++) {
+            String filePath = "/Users/mac/Documents/yp_data_" + i + ".sql";
+            FileInputStream fis = new FileInputStream(filePath);
+            FileChannel fc = fis.getChannel();
+            ByteBuffer buff = ByteBuffer.allocate(256);
+            int count = 0;
+            while (fc.read(buff) != -1) {
+                buff.flip();
+                Charset charset = StandardCharsets.UTF_8;
+                CharBuffer charBuffer = charset.decode(buff);
+                if (charBuffer.toString().contains(");")) {
+                    count++;
+                }
+                buff.clear();
+            }
+            if (count > 1) {
+                System.out.println(filePath);
+            }
+        }
+    }
 }

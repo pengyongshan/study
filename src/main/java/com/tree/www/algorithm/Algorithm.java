@@ -296,40 +296,6 @@ public class Algorithm {
     }
 
     /**
-     * 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，
-     * 使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
-     *
-     * @param nums [-1, 0, 1, 2, -1, -4]
-     * @return [[-1, 0, 1], [-1, -1, 2]]
-     */
-    public static List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length - 2; i++) {
-            if (i > 0 && nums[i] == nums[i - 1] || nums[i] > 0) {
-                continue;
-            }
-            int l = i + 1;
-            int r = nums.length - 1;
-            while (l < r) {
-                int sum = nums[i] + nums[l] + nums[r];
-                if (sum == 0) {
-                    list.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                    while (l < r && nums[l] == nums[l + 1]) l++;
-                    while (l < r && nums[r] == nums[r - 1]) r--;
-                    l++;
-                    r--;
-                } else if (sum < 0) {
-                    l++;
-                } else {
-                    r--;
-                }
-            }
-        }
-        return list;
-    }
-
-    /**
      * 在无限的整数序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...中找到第 n 个数字。
      * 9+(99-9)*2+(999-99)*3+...
      *
