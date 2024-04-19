@@ -296,40 +296,6 @@ public class Algorithm {
     }
 
     /**
-     * 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，
-     * 使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
-     *
-     * @param nums [-1, 0, 1, 2, -1, -4]
-     * @return [[-1, 0, 1], [-1, -1, 2]]
-     */
-    public static List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length - 2; i++) {
-            if (i > 0 && nums[i] == nums[i - 1] || nums[i] > 0) {
-                continue;
-            }
-            int l = i + 1;
-            int r = nums.length - 1;
-            while (l < r) {
-                int sum = nums[i] + nums[l] + nums[r];
-                if (sum == 0) {
-                    list.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                    while (l < r && nums[l] == nums[l + 1]) l++;
-                    while (l < r && nums[r] == nums[r - 1]) r--;
-                    l++;
-                    r--;
-                } else if (sum < 0) {
-                    l++;
-                } else {
-                    r--;
-                }
-            }
-        }
-        return list;
-    }
-
-    /**
      * 在无限的整数序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...中找到第 n 个数字。
      * 9+(99-9)*2+(999-99)*3+...
      *
@@ -612,30 +578,6 @@ public class Algorithm {
     }
 
     /**
-     * 给定长度分别为 m 和 n 的两个数组，其元素由 0-9 构成，表示两个自然数各位上的数字。
-     * 现在从这两个数组中选出 k (k <= m + n) 个数字拼接成一个新的数，要求从同一个数组中取出的数字保持其在原数组中的相对顺序。
-     * <p>
-     * 求满足该条件的最大数。结果返回一个表示该最大数的长度为 k 的数组。
-     *
-     * @param nums1 [3,4,6,5,5,6,7]
-     * @param nums2 [9,1,2,5,8,3]
-     * @param k     8
-     * @return [9, 8, 6, 5, 5, 6, 7, 3]
-     */
-    public static int[] maxNumber(int[] nums1, int[] nums2, int k) {
-        int[] max = null;
-        for (int i = 0; i <= k && i <= nums1.length; i++) {
-            int j = k - i;
-            if (j > nums2.length) continue;
-            int[] max1 = max(nums1, i);
-            int[] max2 = max(nums2, j);
-            int[] merged = merge(max1, max2);
-            if (max == null || greater(merged, 0, max, 0)) max = merged;
-        }
-        return max;
-    }
-
-    /**
      * 给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。
      *
      * @param nums [3,30,34,5,9]
@@ -657,35 +599,6 @@ public class Algorithm {
             result.append(string);
         }
         return result.toString();
-    }
-
-    private static int[] max(int[] nums, int k) {
-        int[] max = new int[k];
-        int from = 0;
-        for (int i = 0; i < k; i++) {
-            for (int j = from + 1; j + (k - i) <= nums.length; j++) {
-                if (nums[j] > nums[from]) from = j;
-            }
-            max[i] = nums[from];
-            from++;
-        }
-        return max;
-    }
-
-    private static int[] merge(int[] nums1, int[] nums2) {
-        int[] merged = new int[nums1.length + nums2.length];
-        for (int i = 0, j = 0, k = 0; k < merged.length; k++) {
-            merged[k] = greater(nums1, i, nums2, j) ? nums1[i++] : nums2[j++];
-        }
-        return merged;
-    }
-
-    private static boolean greater(int[] nums1, int f1, int[] nums2, int f2) {
-        while (f1 < nums1.length && f2 < nums2.length && nums1[f1] == nums2[f2]) {
-            f1++;
-            f2++;
-        }
-        return f2 == nums2.length || (f1 < nums1.length && nums1[f1] > nums2[f2]);
     }
 
     public int[] plusOne(int[] digits) {

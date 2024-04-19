@@ -15,7 +15,7 @@ public class Client {
         accountBook.addBill(new IncomeBill(3000, "卖广告位"));
         accountBook.addBill(new IncomeBill(50000, "卖商品"));
         accountBook.addBill(new IncomeBill(5000, "项目补贴"));
-        AccountBookViewer boss = new Boss();
+        Boss boss = new Boss();
         AccountBookViewer cpa = new CPA();
         AccountBookViewer cfo = new CFO();
 
@@ -24,11 +24,9 @@ public class Client {
         accountBook.show(cfo);
 
         System.out.println("-------------------------------");
-        double totalConsume = ((Boss) boss).getTotalConsume();
-        double totalIncome = ((Boss) boss).getTotalIncome();
+        double totalConsume = boss.getTotalConsume();
+        double totalIncome = boss.getTotalIncome();
         System.out.println("盈利：" + (totalIncome - totalConsume));
-
-
     }
 }
 
