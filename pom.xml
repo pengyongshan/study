@@ -8,7 +8,7 @@
 	<properties>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 		<maven.test.skip>true</maven.test.skip>
-		<spring.version>5.2.20.RELEASE</spring.version>
+		<spring.version>5.2.22.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
