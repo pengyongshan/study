@@ -76,7 +76,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.45</version>
+			<version>8.0.28</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -96,7 +96,7 @@
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
-			<version>4.1.37.Final</version>
+			<version>4.1.42.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>io.netty</groupId>
@@ -143,7 +143,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.3</version>
+			<version>1.2.83</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -154,17 +154,17 @@
 		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
-			<version>1.12.1</version>
+			<version>1.15.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.8</version>
+			<version>4.5.13</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.13.1</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
